@@ -5,82 +5,29 @@ description: Char datatype in C/C++
 tags:
   - cpp
   - c
-socialImage: https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200806155050/signed-and-unsigned-char-in-C.png
+  - char
 ---
+## Intro
 
-## Introduction
+A variable of char type is of 1 byte and is always defined by enclosing the value in single quotation marks. The datatype char is actually an integer type only. It is a subset of integer type and behaves like an integer in many ways. It ranges from -127 to 128.
 
-A variable of char type is of 1 byte and is always defined by enclosing the value in single-quotation marks.
+*C states: A char, a short int, an int, a long int, and a long long int are all considered integer types.*
 
-```cpp
-#include <stdio.h>
+Declaration of char:
+```c
+char ch = 'X';
+```
+##### Aside
 
-typedef struct Person {
-	char* name;
-	short int age;
-} person;
+The first bit represents whether the number is positive or negative. First and last bit are also known as Most Significant and Least Significant bit respectively. Abbreviated as MSB and LSB.
 
-typedef struct Dimension {
-	int x;
-	int y;
-} dimension;
+For example:
+```
+78 --> 01001110
 
-typedef struct Rgb {
-	short int r;
-	short int g;
-	short int b;
-} rgb;
-
-struct Pixel {
-	dimension dim;
-	rgb color;
-};
-
-void print_structure(person p) {
-	printf("%s\n", p.name);
-	printf("%d\n", p.age);
-}
-
-void print_pixel(struct Pixel p) {
-	printf("Pixel info: \n");
-	printf("X-axis %d\n", p.dim.x);
-	printf("Y-axis %d\n", p.dim.y);
-	printf("Red: %hd\n", p.color.r);
-	printf("Blue %hd\n", p.color.b);
-	printf("Green %hd\n", p.color.g);
-}
-
-struct Pixel create_pixel(int x, int y, short int r, short int g, short int b) {
-	struct Pixel pixel;
-
-	pixel.dim.x = x;
-	pixel.dim.y = y;
-	pixel.color.r = r;
-	pixel.color.g = g;
-	pixel.color.b = b;
-
-	return pixel;
-}
-
-int main() {
-	person person1;
-
-	struct Person person2;
-
-	person1.name = "Suyash";
-	person1.age = 32;
-
-	printf("%d\n", person1.age);
-	printf("%s\n", person1.name);
-
-	person2.name = "Shubham";
-	person2.age = 20;
-	print_structure(person2);
-
-	struct Pixel pixel = create_pixel(30, 10, 120, 90, 22);
-
-	print_pixel(pixel);
-
-	return 0;
-}
+-78 --> 2's complement of (01001110)
+	--> (1's complement of) + 1
+	--> (Flip all bits) + 1
+	--> 10110001 + 1
+-78 --> 10110010
 ```
