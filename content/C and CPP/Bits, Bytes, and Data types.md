@@ -83,3 +83,10 @@ range = 0 to Math.pow(2, x) - 1
 ```
 
 ## Overflows -  What if I assign a bigger number?
+
+`short int` occupies 2 bytes. It's range is from -32768 to 32767. What if I assign a number outside of this range? Say, 32768.
+
+```cpp
+short int overflow = 32768;
+printf("%hu", overflow);
+```
