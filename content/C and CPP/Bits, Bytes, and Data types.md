@@ -81,5 +81,3 @@ As for the unsigned integer, this range becomes 0 to 4294967295 and the formula 
 x = number of bits in the data type
 range = 0 to Math.pow(2, x) - 1
 ```
-
-## Overflows -  What if I assign a bigger number?
